@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+	
+	<h1><center>Welcome! {{user.user_name}}</center></h1>
+	<h2><center>{{ get_flashed_messages()[0] }}</center></h2>
+	<p><center><a href="/logout">Logout Now</a></center><br>
+</div>
+
+{% endblock %}
