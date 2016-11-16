@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-import time
-import sys
-import os
-from os.path import exists
-import json
 import requests
 
 
@@ -41,7 +36,7 @@ class Spider:
                 
                 com=each['content']+'\n'
                 f.write(com)
-
+            print ('完成了'+page+'页')
 
 
 jd=Spider()
