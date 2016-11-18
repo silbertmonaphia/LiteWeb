@@ -10,7 +10,7 @@ class Spider:
     def get(self,Pgnum):
         
         f=open('Comment.txt','w')
-        for page in range(Pgnum):
+        for page in range(860,Pgnum):
 
 
             page=str(page)        
@@ -40,4 +40,4 @@ class Spider:
 
 
 jd=Spider()
-jd.get(2000)
+jd.get(861)

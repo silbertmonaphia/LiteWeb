@@ -11,14 +11,15 @@ app = Flask(__name__)
 def user():
 
     user=User(1,escape(session['username']))
-    return render_template('index.html',user=user)
+    return render_template('home.html',user=user)
+
+
 
 @app.route('/')
-def index():
+def home():
 
     if 'username' in session:
-        print ('hello')
-        return render_template('index.html',username=escape(session['username']))
+        return render_template('home.html',username=escape(session['username']))
 
     return redirect(url_for('login'))
 
@@ -43,5 +44,5 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
         app.debug=True
-        app.run(host='0.0.0.0')
+        app.run(host='127.0.0.1')
 
