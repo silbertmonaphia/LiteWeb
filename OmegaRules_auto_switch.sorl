@@ -1,80 +1,79 @@
 [SwitchyOmega Conditions]
-; Require: SwitchyOmega >= 2.3.2
-; Date: 2017/1/5
-; Usage: https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage
+@with result
 
-*.sysgeek.cn
-*.ccb.com
-*.acfun.cn
-*.songshuhui.net
-*.dota2.com.cn
-*.godusevpn.cc
-*.baidu.com
-*.letv.com
-*.le.com
-*.youku.com
-*.12306.cn
-*.biancheng.net
-*.mi.com
-*.guokr.com
-*.alicdn.com
-*.freebuf.com
-*.alipay.com
-*.tbcdn.cn
-*.alibaba.com
-*.tmall.com
-*.360buyimg.com
-*.jd.com
-*.scnu.edu.cn
-*.51cto.com
-192.168.7.1
-*.readcolor.com
-*.panda.tv
-*.segmentfault.com
-*.phpernote.com
-*.infoq.com
-*.csdn.net
-*.xiami.net
-*.cnblogs.com
-*.acgvideo.com
-*.yo9.com
-*.hdslb.com
-*.bilibiliyoo.com
-*.im9.com
-*.xiami.com
-*.uu1001.cn
-*.qcloudimg.com
-*.qcloud.com
-*.visualwebsiteoptimizer.com
-*.doubanio.com
-*.oschina.net
-*.tool.lu
-*.weiyun.com
-*.qqmail.com
-*.aliyun.com
-*.miaopai.com
-*.sina.com.cn
-*.sina.cn
-*.sinajs.cn
-*.weibo.com
-*.sinaimg.cn
-*.qq.com
-*.qpic.cn
-*.gtimg.cn
-*.gtimg.com
-*.jianshu.io
-*.jianshu.com
-*.taobao.com
-*.greencompute.org
-*.ykimg.com
-*.mmstat.com
-*.irs01.com
-*.csdnimg.cn
-*.zhihu.com
-*.zhimg.com
-*.bilibili.com
-*.bilibili.tv
-*.tudou.com
-*.douban.com
-*.cnzz.com
-*.alicdn.com
+*.sysgeek.cn +direct
+*.ccb.com +direct
+*.acfun.cn +direct
+*.songshuhui.net +direct
+*.dota2.com.cn +direct
+*.godusevpn.cc +direct
+*.baidu.com +direct
+*.letv.com +direct
+*.le.com +direct
+*.youku.com +direct
+*.12306.cn +direct
+*.biancheng.net +direct
+*.mi.com +direct
+*.guokr.com +direct
+*.alicdn.com +direct
+*.freebuf.com +direct
+*.alipay.com +direct
+*.tbcdn.cn +direct
+*.alibaba.com +direct
+*.tmall.com +direct
+*.360buyimg.com +direct
+*.jd.com +direct
+*.scnu.edu.cn +direct
+*.51cto.com +direct
+*.readcolor.com +direct
+*.panda.tv +direct
+*.segmentfault.com +direct
+*.phpernote.com +direct
+*.infoq.com +direct
+*.csdn.net +direct
+*.xiami.net +direct
+*.cnblogs.com +direct
+*.acgvideo.com +direct
+*.yo9.com +direct
+*.hdslb.com +direct
+*.bilibiliyoo.com +direct
+*.im9.com +direct
+*.xiami.com +direct
+*.uu1001.cn +direct
+*.qcloudimg.com +direct
+*.qcloud.com +direct
+*.visualwebsiteoptimizer.com +direct
+*.doubanio.com +direct
+*.oschina.net +direct
+*.tool.lu +direct
+*.weiyun.com +direct
+*.qqmail.com +direct
+*.aliyun.com +direct
+*.miaopai.com +direct
+*.sina.com.cn +direct
+*.sina.cn +direct
+*.sinajs.cn +direct
+*.weibo.com +direct
+*.sinaimg.cn +direct
+*.qq.com +direct
+*.qpic.cn +direct
+*.gtimg.cn +direct
+*.gtimg.com +direct
+*.jianshu.io +direct
+*.jianshu.com +direct
+*.taobao.com +direct
+*.greencompute.org +direct
+*.ykimg.com +direct
+*.mmstat.com +direct
+*.irs01.com +direct
+*.csdnimg.cn +direct
+*.zhihu.com +direct
+*.zhimg.com +direct
+*.bilibili.com +direct
+*.bilibili.tv +direct
+*.tudou.com +direct
+*.douban.com +direct
+*.cnzz.com +direct
+*.alicdn.com +direct
+
+* +proxy
