@@ -3,28 +3,26 @@
 
 from flask import *
 from models import User
+from 
 
 app = Flask(__name__)
 
 
-@app.route('/user')
-def user():
-
-    user=User(1,escape(session['username']))
-    return render_template('home.html',user=user)
-
-
-
 @app.route('/')
-def home():
+def index():
+    '''
+    主页登陆后显示最新的10篇文章
+    '''
 
     if 'username' in session:
         return render_template('home.html',username=escape(session['username']))
 
     return redirect(url_for('login'))
 
-@app.route('/login', methods=['GET', 'POST'])
+
+@app.route('/login', methods=['GET','POST'])
 def login():
+
 
         if request.method == 'POST':
             session['username']=request.form['username']
@@ -33,11 +31,28 @@ def login():
         return  render_template('login.html')
 
 
+@app.route('/register')
+def register():
+    '''
+    把用户的注册信息写入数据库
+    '''
+
+    return  render_template('register.html')
+
+
+
+
 @app.route('/logout')
 def logout():
     session.pop('username',None)
     return redirect(url_for('login'))
 
+
+@app.route('/user')
+def user():
+
+    user=User(1,escape(session['username']))
+    return render_template('home.html',user=user)
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
