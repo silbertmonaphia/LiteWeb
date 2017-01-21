@@ -3,7 +3,7 @@
 
 from flask import *
 from models import User
-from 
+
 
 app = Flask(__name__)
 
