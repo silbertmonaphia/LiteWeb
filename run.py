@@ -2,8 +2,7 @@
 #encoding:utf-8
 
 from flask import *
-from models import User
-
+from models import User,Register
 
 app = Flask(__name__)
 
@@ -22,22 +21,23 @@ def index():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+    if request.method == 'POST':
+        session['username']=request.form['username']
+        return redirect(url_for('user'))
+
+    return  render_template('login.html')
 
 
-        if request.method == 'POST':
-            session['username']=request.form['username']
-            return redirect(url_for('user'))
-
-        return  render_template('login.html')
-
-
-@app.route('/register')
+@app.route('/register',methods=['GET','POST'])
 def register():
-    '''
-    把用户的注册信息写入数据库
-    '''
 
-    return  render_template('register.html')
+    if request.method == 'POST':
+
+            reg_username=request.form['reg_username']
+            reg_password=request.form['reg_password']
+            Register.register(reg_username,reg_password)#写入数据库
+            return redirect(url_for('login'))
+    return render_template('register.html')
 
 
 
