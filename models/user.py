@@ -11,10 +11,10 @@ class User(object):
         self.user_name=user_name
 
 
-class db(object):
+class loginRegister(object):
 
     def __init__(self):
-        conn=MongoClient('127.0.0.1',27017)
+        conn=MongoClient('192.168.1.106',27017)
         db=conn.local
         self.userinfo=db.user
         
@@ -22,12 +22,11 @@ class db(object):
         reg_info={"username":reg_username,"password":reg_password}
         self.userinfo.insert(reg_info)
 
-    def check(self,log_username,log_password):
+    def query(self,log_username,log_password):
         log_info={"username":log_username,"password":log_password}
         res=list(self.userinfo.find(log_info))
         print (res)
         if len(res)==0:
-            print (res)
             return False
         else: 
             return True
