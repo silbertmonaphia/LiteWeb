@@ -11,16 +11,24 @@ class User(object):
         self.user_name=user_name
 
 
-class Register(object):
+class db(object):
 
     def __init__(self):
-        client=MongoClient('localhost',27017)
-        db=client.userdb
-        self.userinfo=db.userinfo
+        conn=MongoClient('127.0.0.1',27017)
+        db=conn.local
+        self.userinfo=db.user
         
     def register(self,reg_username,reg_password):
         reg_info={"username":reg_username,"password":reg_password}
-        reg_info=json.dumps(reg_info)
         self.userinfo.insert(reg_info)
 
-
+    def check(self,log_username,log_password):
+        log_info={"username":log_username,"password":log_password}
+        res=list(self.userinfo.find(log_info))
+        print (res)
+        if len(res)==0:
+            print (res)
+            return False
+        else: 
+            return True
+            
