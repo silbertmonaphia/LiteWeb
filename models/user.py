@@ -14,8 +14,8 @@ class User(object):
 class loginRegister(object):
 
     def __init__(self):
-        conn = MongoClient('192.168.1.106', 27017)
-        db = conn.local
+        conn = MongoClient('10.104.173.116', 27017)
+        db = conn.userdb
         self.userinfo = db.user
 
     def register(self, reg_username, reg_password):
