@@ -1,2 +1,0 @@
-cd /LiteWeb
-./run.py
