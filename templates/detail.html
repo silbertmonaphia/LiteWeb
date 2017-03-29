@@ -1,10 +1,11 @@
 <!-- extend base layout -->
 {% extends "base.html" %}
+
 {% block userinfo %}
 <aside class="sidebar">
   <div class="widget">
     <h2>
-      <p>欢迎光临 {{user.user_name}} 大人    <a href="/logout">登出</p>
+      <p>欢迎光临 {{user.user_name}} 大人    <a href="/logout">登出</a></p>
     </h2>
   </div>
 </aside>
@@ -14,16 +15,16 @@
 <div class="blog">
   {% if post %}
   <div class="conteudo">
+
     <div class="post-info">
       作者:{{ post.author }}<br>
       日期:{{ post.time }} 
     </div>
     <h1> {{ post.title }} </h1>
     <hr>
-    <p>
-      {{ post.content|markdown }}
-    </p>
+    <p>{{ post.content|markdown }}</p>
+
   </div>
-    {% endif %}
+  {% endif %}
 </div>
 {% endblock %}

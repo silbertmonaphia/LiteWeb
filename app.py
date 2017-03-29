@@ -14,11 +14,8 @@ app.config['MONGODB_SETTINGS'] = {
     'port': 27017
 }
 db = MongoEngine(app)
-md = Markdown(app,
-              extensions=['footnotes'],
-              entension_configs={'footnotes': ('PLACE_MARKER', '```')},
-              safe_mode=True,
-              output_format='html4')
+md = Markdown(app, extensions=['footnotes'], entension_configs={
+              'footnotes': ('PLACE_MARKER', '```')}, safe_mode=True, output_format='html4')
 
 app.secret_key = 'Z1Jr22~j/3lRX MM!XjbN]LwX/,BT?'
 
@@ -27,7 +24,7 @@ class Post(db.Document):
     author = db.StringField(max_length=50)
     title = db.StringField(max_length=120, required=True)
     tags = db.ListField(db.StringField(max_length=30))
-    time = db.DateTimeField(default=datetime.datetime.now())
+    time = db.DateTimeField(default=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     content = db.StringField()
 
 
@@ -66,9 +63,15 @@ def register():
 
         reg_username = request.form['reg_username']
         reg_password = request.form['reg_password']
-        loginRegister().register(reg_username, reg_password)
-
-        return redirect(url_for('login'))
+        invitation_code = request.form['invitation_code']
+        print(type(reg_password))
+        print(type(reg_password))
+        print(type(invitation_code))
+        if invitation_code == 'DoNotWearRedHat':
+            loginRegister().register(reg_username, reg_password)
+            return redirect(url_for('login'))
+        else:
+            return Response('<h3>邀请码错误</h3>')
 
     return render_template('register.html')
 
@@ -118,9 +121,6 @@ def detail(title):
 
 @app.route('/create/', methods=['GET', 'POST'])
 def create():
-    """
-    write page
-    """
     if 'username' in session:
 
         if request.method == 'POST':
@@ -131,6 +131,7 @@ def create():
             content = request.form['content']
             post = Post(author=author, title=title, tags=tags, content=content)
             post.save()
+            return redirect(url_for('article'))
 
         user = User(user_id=1, user_name=escape(session['username']))
         return render_template('create.html', user=user)
@@ -164,6 +165,7 @@ def edit(title):
         return render_template('edit.html', title="edit", post=post, user=user)
     else:
         return redirect(url_for('login'))
+
 
 @app.route('/<string:title>/delete/', methods=['GET', 'POST'])
 def delete(title):

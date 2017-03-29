@@ -1,25 +1,43 @@
-<!-- extend base layout -->
 {% extends "base.html" %}
+
+{% block userinfo %}
+<aside class="sidebar">
+  <div class="widget">
+    <h2>
+      <p>欢迎光临 {{user.user_name}} 大人    <a href="/logout">登出</a></p>
+    </h2>
+  </div>
+</aside>
+{% endblock %}
+
+
 {% block content %}
+<div class='blog'>
   <form action="" method="post">
-    <div >
-      <label>Title</label>
-      <div>
-        <input name="title" type="text" >
-        <input name="tags" type="text" value="请用英文'#'隔开标签">
+    <div class="conteudo">
+
+      <label>标题</label>
+
+      <div>    
+        <input name="title" type="text" class="editbox"><br>
+        <label>标签</label><br>
+        <input name="tags" type="text" class="editbox" value="请用英文'#'隔开标签">
       </div>
-    </div>
-    <div>
-      <label>Content</label>
+
+      <label>正文</label>
+
       <div>
-        <textarea id="content" name="content">Please write here</textarea>
+          <textarea id="content" name="content" class="textarea">"""此处输入正文,支持markdown语法"""</textarea>
       </div>
-    </div>
-    <div>
+
       <div>
         <button type="submit">Create</button>
         <a href="{{ url_for('article') }}">Cancel</a>
       </div>
+
     </div>
   </form>
+</div>
+
 {% endblock %}
+

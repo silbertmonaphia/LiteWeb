@@ -134,6 +134,22 @@ nav.menu ul a:hover {
   float:left;
 }
 
+.editbox {
+     height:20px;
+     width:300px;
+}
+
+.textarea{
+  resize:none;  
+  width: 600px; 
+  min-width:600px; 
+  max-width:600px; 
+
+  height:600px; 
+  min-height:600px;  
+  max-height:600px;
+}
+
 .conteudo {
   width:600px;
   margin:25px auto;

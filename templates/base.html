@@ -5,7 +5,9 @@
         <title>Lite-Web</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
     </head>
+
     <body>
+
         <header class="header">
             <ul>
                 <li class="cor-1"></li>
@@ -17,7 +19,6 @@
         </header>
 
         <div class="wrap">
-
             <nav class="menu">
                   <ul>
                     <li>
@@ -37,5 +38,8 @@
             {% block userinfo %}{% endblock %}
             {% block content %}{% endblock %}
         </div>
+
+        
+
     </body>
 </html>
