@@ -151,9 +151,9 @@ nav.menu ul a:hover {
 }
 
 .conteudo {
-  width:600px;
+  width:625px;
   margin:25px auto;
-  padding:25px;
+  padding:10px;
   background: #fff;
   border:1px solid #dedede;
   -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,0.35);

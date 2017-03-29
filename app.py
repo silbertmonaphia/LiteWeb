@@ -108,7 +108,7 @@ def detail(title):
     if 'username' in session:
 
         user = User(user_id=1, user_name=escape(session['username']))
-        post = Post.objects.get_or_404(author=session["username"], title=title)
+        post = Post.objects.get_or_404(title=title)
 
         return render_template('detail.html', title="details", post=post, user=user)
 
