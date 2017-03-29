@@ -1,0 +1,25 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+  <form action="" method="post">
+    <div>
+      <label>Title</label>
+      <div>
+        <input name="title" type="text" value="{{post.title}}">
+        <input name="tags" type="text" value="{{post.tags}}">
+      </div>
+    </div>
+    <div>
+      <label>Content</label>
+      <div>
+        <textarea id="content" name="content">{{post.content}}</textarea>
+      </div>
+    </div>
+    <div>
+      <div>
+        <button type="submit">update</button>
+        <a href="{{ url_for('article') }}">Cancel</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}
