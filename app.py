@@ -6,6 +6,7 @@ from flask import Flask, redirect, url_for, Response, request, render_template, 
 from models.user import User, loginRegister
 from flask_mongoengine import MongoEngine
 from flaskext.markdown import Markdown
+from log import log
 
 app = Flask(__name__)
 app.config['MONGODB_SETTINGS'] = {
@@ -32,8 +33,8 @@ class Post(db.Document):
 def not_found(exc):
     return Response('<h3>页面丢失，或不具有访问权限</h3>'), 404
 
-
 @app.route('/')
+@log
 def index():
 
     if 'username' in session:
@@ -55,7 +56,6 @@ def login():
             return redirect(url_for('user'))
     return render_template('login.html')
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
 
@@ -75,12 +75,10 @@ def register():
 
     return render_template('register.html')
 
-
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
-
 
 @app.route('/user')
 def user():
@@ -88,7 +86,6 @@ def user():
     return redirect(url_for('article'))
 
 # show articles
-
 
 @app.route('/article')
 def article():
@@ -100,7 +97,6 @@ def article():
         return redirect(url_for('login'))
 
 # show detail of blog
-
 
 @app.route('/post/<string:title>')
 def detail(title):
@@ -117,7 +113,6 @@ def detail(title):
         return redirect(url_for('login'))
 
 # create and edit articles
-
 
 @app.route('/create/', methods=['GET', 'POST'])
 def create():
@@ -138,7 +133,6 @@ def create():
 
     else:
         return redirect(url_for('login'))
-
 
 @app.route('/<string:title>/edit/', methods=['GET', 'POST'])
 def edit(title):
@@ -165,7 +159,6 @@ def edit(title):
         return render_template('edit.html', title="edit", post=post, user=user)
     else:
         return redirect(url_for('login'))
-
 
 @app.route('/<string:title>/delete/', methods=['GET', 'POST'])
 def delete(title):
