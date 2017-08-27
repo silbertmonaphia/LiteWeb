@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lite-Web</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    </head>
+
+    <body>
+
+        <header class="header">
+            <ul>
+                <li class="cor-1"></li>
+                <li class="cor-2"></li>
+                <li class="cor-3"></li>
+                <li class="cor-4"></li>
+                <li class="cor-5"></li>
+            </ul>
+        </header>
+
+        <div class="wrap">
+            <nav class="menu">
+                  <ul>
+                    <li>
+                      <a href="/">主页</a>
+                    </li>
+                    <li>
+                      <a href="/article">文章</a>
+                    </li>
+                    <li>
+                        <a href="/create/">New!</a>
+                    </li>
+                    <li>
+                      <a href="http://blog.csdn.net/qq_29245097">关于我</a>
+                    </li>
+                  </ul>
+            </nav>
+            {% block userinfo %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+
+        
+
+    </body>
+</html>
